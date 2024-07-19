@@ -35,4 +35,4 @@ Optionlly, one or more spokes are connected via transit gateway attachments to t
 Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB.<br>
 The GWLB will forward the traffic to the available Fortigates.<br>
 E/W traffic is routed back towards the GWLB (policy based routes).<br>
-Internet (EGRESS) is NATted on the FGT's and reaches the internet via the IGW.<br>
+Internet (EGRESS) is NATted on the FGT's (port2) and reaches the internet via the IGW and natted on the corresponding EIP's.<br>
