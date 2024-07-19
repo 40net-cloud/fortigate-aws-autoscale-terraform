@@ -31,7 +31,7 @@ This terraform plan will create
 - Support for EGRESS (NAT on FGT)
 
 Optionlly, one or more spokes are connected via transit gateway attachments to the transit gateway.<br>
-Please note and adopt the `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.tfvars`
+Please note and adapt the `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.tfvars`
 
 Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB endpoints in the security VPC.<br>
 The GWLB will forward the incoming traffic over Geneve tunnels terminiated on port1 on one of the available Fortigates<br>
