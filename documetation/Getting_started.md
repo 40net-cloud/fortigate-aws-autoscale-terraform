@@ -26,7 +26,7 @@ This terraform plan will simply create
 Optionlly, one or more spokes can be connected.<br>
 Please note and adapt the `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
 
-1. Traffic is routed towards GWLB endpoints **in the spoke vpc**. Please note that these endpoints are NOT created by default.<br>
+1. Traffic is routed towards GWLB endpoints **in the spoke vpc**. Please note that these endpoints are **NOT** created by default.<br>
 2. The GWLB will pickup the incoming traffic and forward it over the Geneve tunnels terminiated on port1 on one of the available Fortigates<br>
 3. **All traffic** is routed back towards the GWLB over the Geneve tunnels via policy based routes.<br>
 	
