@@ -27,7 +27,12 @@ This terraform plan will create
 - GWLB and endpoints
 - ASG for byol/payg fortigates
 - Internet gateway
-
-Traffic is routed fron the fortigates via the internet gateway to the internet.
+- Support for E/W
+- Support for EGRESS (NAT on FGT)
 
 Optionlly, one or more spokes are connected via transit gateway attachments to the transit gateway
+
+Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB. 
+The GWLB will forward the traffic to the available Fortigates.
+E/W traffic is routed back towards teh GWLB
+Internet (EGRESS) is NATted on the FGT's and reaches the internet via the IGW
