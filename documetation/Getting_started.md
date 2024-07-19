@@ -29,8 +29,6 @@ Please note and adapt the `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.t
 1. Traffic is routed from the spokes via GWLB endpoints in the security VPC. Please note that these endpoints are NOT created by default.<br>
 2. The GWLB will forward the incoming traffic over Geneve tunnels terminiated on port1 on one of the available Fortigates<br>
 3. **All traffic** is routed back towards the GWLB over the Geneve tunnels via policy based routes.<br>
-
-Looks like licenses are not validated by default .... ??? WHY
 	
 ### 2. spk_tgw_gwlb_asg_fgt_gwlb_igw
 This terraform plan will create 
