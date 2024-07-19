@@ -26,7 +26,7 @@ This terraform plan will create
 - a transit gateway
 - GWLB and endpoints
 - ASG for byol/payg fortigates
-- Internet gateway
+- Internet gateway in the security VPC
 - Support for E/W
 - Support for EGRESS (NAT on FGT)
 
