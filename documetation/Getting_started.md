@@ -5,7 +5,7 @@ Prepare an AWS environment.
 - AWS access key / secret key
 - SSH key
 
-## Clone the repo
+## Setup
 ```
 git clone https://github.com/fortinet/terraform-aws-cloud-modules.git
 ```
