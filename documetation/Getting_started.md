@@ -22,3 +22,12 @@ The examples directory contains 3 'packaged' deployments
 ### 2. spk_tgw_gwlb_asg_fgt_gwlb_igw
 	
 ### 3. spk_tgw_gwlb_asg_fgt_igw
+This terraform plan will create 
+- a transit gateway
+- GWLB and endpoints
+- ASG for byol/payg fortigates
+- Internet gateway
+
+Traffic is routed fron the fortigates via the internet gateway to the internet.
+
+Optionlly, one or more spokes are connected via transit gateway attachments to the transit gateway
