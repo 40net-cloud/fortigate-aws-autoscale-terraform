@@ -32,7 +32,7 @@ This terraform plan will create
 
 Optionlly, one or more spokes are connected via transit gateway attachments to the transit gateway
 
-Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB. 
-The GWLB will forward the traffic to the available Fortigates.
-E/W traffic is routed back towards teh GWLB
-Internet (EGRESS) is NATted on the FGT's and reaches the internet via the IGW
+Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB.<br>
+The GWLB will forward the traffic to the available Fortigates.<br>
+E/W traffic is routed back towards teh GWLB.<br>
+Internet (EGRESS) is NATted on the FGT's and reaches the internet via the IGW.<br>
