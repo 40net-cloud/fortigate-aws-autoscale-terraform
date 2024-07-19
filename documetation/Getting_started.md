@@ -27,7 +27,7 @@ Optionlly, one or more spokes can be connected.<br>
 Please note and adapt the `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
 
 1. Traffic is routed towards GWLB endpoints **in the spoke vpc**. Please note that these endpoints are **NOT** created by default.<br>
-2. The GWLB will pickup the incoming traffic and forward it over the Geneve tunnels terminiated on port1 on one of the available Fortigates<br>
+2. The GWLB will pickup the incoming traffic and forward it over one of the Geneve tunnels terminiated on port1 of the available Fortigates<br>
 3. **All traffic** is routed back towards the GWLB over the Geneve tunnels via policy based routes.<br>
 	
 ### 2. spk_tgw_gwlb_asg_fgt_gwlb_igw
@@ -44,7 +44,7 @@ Optionlly, one or more spokes are connected via transit gateway attachments to t
 Please note and adapt the `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.tfvars`
 
 1. Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB endpoints in the security VPC.<br>
-2. The GWLB will forward the incoming traffic over Geneve tunnels terminiated on port1 on one of the available Fortigates<br>
+2. The GWLB will pickup the incoming traffic and forward it over one of the Geneve tunnels terminiated on port1 of the available Fortigates<br>
 3. E/W and EGRESS is routed back towards the GWLB over the Geneve tunnels via ??policy based?? routes.<br>
 4. EGRESS (Internet) traffic is routed towards the NAT gateway, E/W traffic is is routed towards the TGW.<br>
 	
@@ -62,6 +62,6 @@ Optionlly, one or more spokes are connected via transit gateway attachments to t
 Please note and adapt the `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.tfvars`
 
 1. Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB endpoints in the security VPC.<br>
-2. The GWLB will forward the incoming traffic over Geneve tunnels terminiated on port1 on one of the available Fortigates<br>
+2. The GWLB will pickup the incoming traffic and forward it over one of the Geneve tunnels terminiated on port1 of the available Fortigates<br>
 3. E/W traffic is routed back towards the GWLB over the Geneve tunnels via policy based routes.<br>
 4. EGRESS (Internet) traffic is source NATted on the FGT's (port2) and reaches the internet via the IGW and natted on the corresponding EIP's.<br>
