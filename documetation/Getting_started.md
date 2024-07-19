@@ -32,7 +32,7 @@ This terraform plan will create
 
 Optionlly, one or more spokes are connected via transit gateway attachments to the transit gateway
 
-Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB endpoints.<br>
+Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB endpoints in the security VPC.<br>
 The GWLB will forward the incoming traffic over Geneve tunnels terminiated on port1 on one of the available Fortigates<br>
 E/W traffic is routed back towards the GWLB over the Geneve tunnels via policy based routes.<br>
-Internet (EGRESS) is NATted on the FGT's (port2) and reaches the internet via the IGW and natted on the corresponding EIP's.<br>
+Internet traffic (EGRESS) is NATted on the FGT's (port2) and reaches the internet via the IGW and natted on the corresponding EIP's.<br>
