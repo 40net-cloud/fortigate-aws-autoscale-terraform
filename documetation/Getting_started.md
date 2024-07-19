@@ -36,4 +36,4 @@ Please note and adapt the `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.t
 1. Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB endpoints in the security VPC.<br>
 2. The GWLB will forward the incoming traffic over Geneve tunnels terminiated on port1 on one of the available Fortigates<br>
 3. E/W traffic is routed back towards the GWLB over the Geneve tunnels via policy based routes.<br>
-4. Internet traffic (EGRESS) is NATted on the FGT's (port2) and reaches the internet via the IGW and natted on the corresponding EIP's.<br>
+4. EGRESS (Internet) traffic is source NATted on the FGT's (port2) and reaches the internet via the IGW and natted on the corresponding EIP's.<br>
