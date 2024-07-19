@@ -24,7 +24,7 @@ This terraform plan will simply create
 - ASG for byol/payg fortigates
 
 Optionlly, one or more spokes can be connected.<br>
-Please note and adapt the `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.tfvars`
+Please note and adapt the `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
 
 	
 ### 2. spk_tgw_gwlb_asg_fgt_gwlb_igw
