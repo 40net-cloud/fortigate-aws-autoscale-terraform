@@ -21,7 +21,7 @@ The purpose of the Lambda function (fgt_asg_launch_fgt_byol_asg and fgt_asg_laun
 - the advanced network configuration (GENEVE tunnels)
 - config system auto-scale
 
-`config system auto-scale` requires particular attention. In order to configure a newly created FGT, the LAMBDA function needs to determine the **PRIMARY FGT** and configure it as a **SECONDARY** accordingly. The state is tracked in an **AWS Dynamo Database**. If there is no PRIMAY, the unit will assume this ROLE.
+`config system auto-scale` requires particular attention. In order to configure a newly created FGT, the LAMBDA function needs to determine the **PRIMARY FGT** and configure it as a **SECONDARY** accordingly. The state is tracked in an **AWS DynamoDB**. If there is no PRIMAY, the unit will assume this ROLE.
 
 
 
