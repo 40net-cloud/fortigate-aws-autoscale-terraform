@@ -15,9 +15,12 @@ git clone https://github.com/fortinet/terraform-aws-cloud-modules.git
 ```
 
 The examples directory contains 3 'packaged' deployments
-1. spk_**gwlb_asg_fgt_gwlb_igw**
-2. spk_**tgw_gwlb_asg_fgt_gwlb_igw**
-3. spk_**tgw_gwlb_asg_fgt_igw**
+1. spk_gwlb_asg_fgt_gwlb_igw
+2. spk_tgw_gwlb_asg_fgt_gwlb_igw
+3. spk_tgw_gwlb_asg_fgt_igw
+
+The naming more or less describes the flow for E/W and Egress traffic flows. Please note the modules **DO NOT** create any spoke VPC.
+The Terraform modules **can** update exsting spoke VPC's (route table, endpoint creation, etc)
 
 ### 1. spk_gwlb_asg_fgt_gwlb_igw
 This terraform plan will simply create
