@@ -16,7 +16,7 @@ When the FGT instance is started, **cloud-init** is used to configure the newly 
 A similar approach is folowed when removing an instances.
 
 The purpose of the Lambda function (fgt_asg_launch_fgt_byol_asg and fgt_asg_launch_fgt_on_demand_asg) is to configure the FGT with
-- license file or Fortiflex
+- license file or Fortiflex (or PAYG)
 - initial policy config
 - the advanced network configuration (GENEVE tunnels)
 - configuring cluster-autoscale
