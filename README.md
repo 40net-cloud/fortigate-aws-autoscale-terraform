@@ -10,6 +10,7 @@ The core of the solution, are **two AWS autoscaling groups (ASG)**, one to contr
 **Cloudwatch** will continously monitor the resource utilsation and scale in/out the autoscaling groups based on predefined tresholds, in other words, add or remove Fortigate instances when required.
 
 The creation of a FGT instance is initiated by Cloudwatch instructing the ASG.
-Once the FGT instances is started, **cloud-init** is used to configure the newly instantiated FGT.
+Once the FGT instances is started, **cloud-init** is used to configure the newly instantiated FGT with a basic network configuration configuration to allow access to the instance.
+
 
 
