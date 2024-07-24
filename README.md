@@ -19,7 +19,9 @@ The purpose of the Lambda function (fgt_asg_launch_fgt_byol_asg and fgt_asg_laun
 - license file or Fortiflex (or PAYG)
 - initial policy config
 - the advanced network configuration (GENEVE tunnels)
-- configuring cluster-autoscale
+- config system auto-scale
+
+`config system auto-scale` requires particular attention. In order to configure a newly created FT, the LAMBDA function needs to determine the PRIMARY and configure it as a SECONDAY accordingly. The state is tracked in an **AWS DYNAMO DATABASE**
 
 
 
