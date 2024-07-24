@@ -1,4 +1,7 @@
 # Getting started
+The repo contains:
+- terraform modules
+- examples
 
 ## Pre-requisites
 Prepare an AWS environment. 
@@ -6,16 +9,15 @@ Prepare an AWS environment.
 - SSH key
 
 ## Setup
+Use the official repository for the latest and updated versions of the modules.
 ```
 git clone https://github.com/fortinet/terraform-aws-cloud-modules.git
 ```
 
-## Architecture 
-The repo contains:
-- terraform modules
-- examples
-
 The examples directory contains 3 'packaged' deployments
+1. spk_**gwlb_asg_fgt_gwlb_igw**
+2. spk_**tgw_gwlb_asg_fgt_gwlb_igw**
+3. spk_**tgw_gwlb_asg_fgt_igw**
 
 ### 1. spk_gwlb_asg_fgt_gwlb_igw
 This terraform plan will simply create
