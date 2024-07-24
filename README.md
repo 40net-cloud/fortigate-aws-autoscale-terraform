@@ -20,7 +20,7 @@ Once the FortiGate instance is started, **Cloud-init** configures it with a basi
 **AWS EventBridge** monitors notifications indicating successful FortiGate EC2 instance launches (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to further configure the newly created FortiGate instance. 
 A similar approach is followed when removing instances.
 
-### Lambda Function 
+### Lambda Functions 
 The Lambda functions (fgt_asg_launch_fgt_byol_asg and fgt_asg_launch_fgt_on_demand_asg) are responsible for configuring the FortiGate instance with the following:
 - License file or FortiFlex (or PAYG)
 - Initial policy configuration
