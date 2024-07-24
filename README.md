@@ -12,7 +12,7 @@ The core of the solution, are **two AWS autoscaling groups (ASG)**, one to contr
 The creation of a FGT instance is initiated by Cloudwatch instructing the ASG.
 Once the FGT instances is started, **cloud-init** is used to configure the newly instantiated FGT with a basic network configuration configuration to allow access to the instance.
 
-**AWS EventBridge** looks out for notifications from **CloudWatch** indicating successfull FGT EC2 instance launches (and removal) and triggers an **AWS LAMBDA function** to configure the newly created FGT.
+**AWS EventBridge** looks out for notifications from **CloudWatch** indicating successfull FGT EC2 instance launches and triggers an **AWS LAMBDA function** to configure the newly created FGT.
 A similar approach is folowed when removing an instances.
 
 The purpose of the Lambda function (fgt_asg_launch_fgt_byol_asg and fgt_asg_launch_fgt_on_demand_asg) is to configure the FGT with
