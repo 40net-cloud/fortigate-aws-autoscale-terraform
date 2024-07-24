@@ -10,7 +10,7 @@ The core of the solution, are **two AWS autoscaling groups (ASG)**, one to contr
 **Cloudwatch** will continously monitor the resource utilsation and trigger scale in/out operations based on predefined tresholds.
 
 As explained, the creation of a FGT instance is initiated by Cloudwatch instructing the ASG to scale out.
-When the FGT instance is started, **cloud-init** is used to configure the newly instantiated FGT with a very basic network configuration configuration allowing access to the instance.
+When the FGT instance is started, **cloud-init** is used to configure the newly instantiated FGT with a very basic network configuration allowing access to the instance.
 
 **AWS EventBridge** looks out for notifications indicating successfull FGT EC2 instance launches (via **ASG Lifecycle hooks**) and triggers an **AWS LAMBDA function** to configure the newly created FGT.
 A similar approach is folowed when removing an instances.
