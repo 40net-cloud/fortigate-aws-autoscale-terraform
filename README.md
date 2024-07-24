@@ -1,7 +1,7 @@
 # Fortigate autoscaling in AWS
 This repository provides detailed information and insights on how to get started with **Terraform modules** that facilitate the implementation of **autoscaling FortiGate instances in an AWS Gateway Load Balancer (GWLB)** scenario.
 
-The solution is divided into two main components:
+At a very high level, the solution is divided into two main components:
 - Autoscaling in AWS
 - Implementing autoscaling on FortiGate
 
