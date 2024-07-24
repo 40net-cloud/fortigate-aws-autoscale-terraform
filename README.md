@@ -7,10 +7,10 @@ There are two parts when analysing the solution.
 
   
 The core of the solution, are **two AWS autoscaling groups (ASG)**, one to control respectivily the number of BYOL instances and one ASG for PAYG Fortigate instances.
-**Cloudwatch** will continously monitor the resource utilsation and scale in/out the autoscaling groups based on predefined tresholds, in other words, add or remove Fortigate instances when required.
+**Cloudwatch** will continously monitor the resource utilsation and trigger scale in/out operations based on predefined tresholds.
 
-The creation of a FGT instance is initiated by Cloudwatch instructing the ASG.
-Once the FGT instances is started, **cloud-init** is used to configure the newly instantiated FGT with a basic network configuration configuration to allow access to the instance.
+As explained, the creation of a FGT instance is initiated by Cloudwatch instructing the ASG to scale out.
+When the FGT instances is started, **cloud-init** is used to configure the newly instantiated FGT with a very basic network configuration configuration allowing access to the instance.
 
 **AWS EventBridge** looks out for notifications from **CloudWatch** indicating successfull FGT EC2 instance launches and triggers an **AWS LAMBDA function** to configure the newly created FGT.
 A similar approach is folowed when removing an instances.
