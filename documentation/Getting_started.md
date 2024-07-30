@@ -16,6 +16,7 @@ These essentials will allow you to securely access and manage your AWS resources
 Make sure to use the official repository for the latest and updated versions of the modules. The repository includes:
 - Terraform modules
 - Examples
+
 This ensures you have access to the most current and reliable resources for your setup.
 
 ```
