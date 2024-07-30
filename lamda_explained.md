@@ -1,7 +1,7 @@
 # Overview of the Lambda Script (fgt-asg-lambda_fgt_byol_asg)
 
 The provided lambda script is designed to control auto-scaling with FortiGates in AWS. It is written in Python and utilizes various AWS services such as EC2, S3, and DynamoDB.
-Initialization
+## Initialization
 The script starts by initializing the necessary AWS clients and variables:
 
 - ec2_client: an EC2 client for interacting with EC2 instances
@@ -13,13 +13,13 @@ The script starts by initializing the necessary AWS clients and variables:
 
 ## Main Functionality
 The script's main functionality is defined in the main method, which takes an event object as input. This method is responsible for controlling the auto-scaling process based on the event type.
-Event Types
+### Event Types
 The script handles two types of events:
 
 - EC2 Instance-launch Lifecycle Action: triggered when an EC2 instance is launched
 - EC2 Instance-terminate Lifecycle Action: triggered when an EC2 instance is terminated
 
-## Launch Event
+### Launch Event
 When a launch event is received, the script performs the following actions:
 
 - Retrieves the instance ID and availability zone from the event object
@@ -29,7 +29,7 @@ When a launch event is received, the script performs the following actions:
 - Sets the DeleteOnTermination attribute for the network interface to True
 - Associates a public IP address with the network interface if required
 
-## Terminate Event
+### Terminate Event
 When a terminate event is received, the script performs the following actions:
 
 - Retrieves the instance ID from the event object
@@ -37,11 +37,12 @@ When a terminate event is received, the script performs the following actions:
 - Iterates through the interface track dictionary and cleans up each interface
 - Removes the interface track file from S3
 
-## Interface Track File
+### Interface Track File
 The script uses an interface track file stored in S3 to keep track of the network interfaces created for each EC2 instance. The file contains a dictionary where the keys are instance IDs and the values are dictionaries of network interfaces.
 Locking Mechanism
 The script uses a locking mechanism to prevent concurrent access to the interface track file. The locking mechanism uses a tag on the S3 object to indicate whether the file is locked or not.
-DynamoDB Operations
+
+### DynamoDB Operations
 The script provides several methods for interacting with DynamoDB, including:
 
 - get_item_from_dydb: retrieves an item from DynamoDB
