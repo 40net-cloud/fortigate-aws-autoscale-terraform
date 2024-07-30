@@ -1,6 +1,9 @@
 # Overview of the Lambda Script (fgt-asg-lambda_fgt_byol_asg)
 
-The provided lambda script is designed to control auto-scaling with FortiGates in AWS. It is written in Python and utilizes various AWS services such as EC2, S3, and DynamoDB.
+The provided lambda script is designed to control auto-scaling with FortiGates in AWS. <br>
+It is written in Python and utilizes various AWS services such as EC2, S3, and DynamoDB.<br>
+It is triggered by the **AWS EventBridge** rules.
+
 ## Initialization
 The script starts by initializing the necessary AWS clients and variables:
 
@@ -53,7 +56,9 @@ The script provides several methods for interacting with DynamoDB, including:
 - remove_item_from_dydb: removes an item from DynamoDB
 
 ### Logging
-The script uses the logging module to log important events and errors. The log level is set to INFO by default.
+The script uses the logging module to log important events and errors. The log level is set to INFO by default. <br>
+Each Lambda function has its own log group (CloudWatch -> Log groups -> /aws/lambda/fgt-asg-lambda_fgt_byol_asg) <br>
+It contains detailed information about the actions taken.
 
 ## Conclusion
 In conclusion, the provided lambda script is designed to control auto-scaling with FortiGates in AWS. It handles launch and terminate events, creates and cleans up network interfaces, and uses a locking mechanism to prevent concurrent access to the interface track file. The script also provides several methods for interacting with DynamoDB.
