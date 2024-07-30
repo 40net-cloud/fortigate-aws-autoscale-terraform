@@ -18,7 +18,7 @@ Make sure to use the official repository for the latest and updated versions of 
 - Examples
 <br>
 This ensures you have access to the most current and reliable resources for your setup.<br>
-
+<br>
 In your console, run:
 
 ```
@@ -38,10 +38,10 @@ The Terraform modules **can** update exsting spoke VPC's (route table, endpoint 
 This terraform plan will simply create
 - Security VPC
 - GWLB
-- ASG for byol/payg fortigates
+- ASG for byol/payg fortigates and related resources
 
 Optionlly, one or more spokes can be connected.<br>
-Please note and adapt the `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
+Please note the setup assumes that your spokes are in the ranges defined in `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
 
 1. Traffic is routed towards GWLB endpoints **in the spoke vpc**. Please note that these endpoints are **NOT** created by default.<br>
 2. The GWLB will pickup the incoming traffic and forward it over one of the Geneve tunnels terminiated on port1 of the available Fortigates<br>
