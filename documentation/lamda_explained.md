@@ -47,6 +47,7 @@ When a terminate event is received, the script performs the following actions:
 - Gets the interface track dictionary from S3
 - Iterates through the interface track dictionary and cleans up each interface
 - Removes the interface track file from S3
+- Updates the asg-fgt-lic-track.json file
 
 ### Interface Track File
 The script uses an interface track file stored in S3 to keep track of the network interfaces created for each EC2 instance. The file contains a dictionary where the keys are instance IDs and the values are dictionaries of network interfaces.
