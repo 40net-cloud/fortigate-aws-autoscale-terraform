@@ -21,17 +21,17 @@ Key components of an Auto Scaling Group include:
 - **Health Checks:** Mechanisms to ensure that instances are running properly. ASGs can use EC2 status checks or Elastic Load Balancer (ELB) health checks to determine the health of instances.
 - **Lifecycle Hooks:** Allow you to perform custom actions at different stages of the instance lifecycle, such as when instances are launching or terminating.
 
-By using Auto Scaling Groups, you can ensure that your applications are resilient, scalable, and cost-effective, automatically responding to varying loads without manual intervention.
+By using Auto Scaling Groups, you can ensure that your Fortigate deployment is resilient, scalable, and cost-effective, automatically responding to varying loads **without** manual intervention.
 
-Lifecycle Hooks in AWS Auto Scaling Groups enable you to perform custom actions at different stages of the instance lifecycle, such as during instance launch or termination. These hooks allow for tasks like configuring software, running scripts, or saving logs, ensuring a smoother and more controlled scaling process.
+**Lifecycle Hooks** in AWS Auto Scaling Groups enable you to perform custom actions at different stages of the instance lifecycle, such as during instance launch or termination. These hooks allow for tasks like configuring software, running scripts, or saving logs, ensuring a smoother and more controlled scaling process. In this deployment, a notifications of these events happening is picked up on the **AWS EventBridge**.
 
 **AWS CloudWatch** continuously monitors various metrics such as CPU utilization, memory usage, disk I/O, and network traffic for your AWS resources. It provides real-time insights and triggers alarms when metrics breach predefined thresholds. These alarms can then initiate scale-in or scale-out operations within an Auto Scaling Group, automatically adjusting the number of EC2 instances to match the current demand. This ensures optimal performance and cost-efficiency by dynamically scaling your infrastructure in response to actual usage patterns.
 
-### Autoscaling Process
-CloudWatch alerts will trigger and instructs an ASG to scale out. 
-Once the FortiGate instance is started, **Cloud-init** configures it with a basic network setup, enabling access to the instance, as specified in the Launch Configuration
-
-**AWS EventBridge** monitors notifications indicating successful FortiGate EC2 instance launches (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to further configure the newly created FortiGate instance. A similar approach is followed when removing instances.
+### Autoscaling Process (scaling out)
+1. Traffic conditions change 
+2. CloudWatch alerts will trigger and instructs an ASG to scale out. 
+3. While the FortiGate instance is started, **Cloud-init** configures it with a basic network setup, enabling access to the instance, as specified in the **Launch Configuration**.
+4. **AWS EventBridge** monitors notifications indicating successful FortiGate EC2 instance launches (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to further configure the newly created FortiGate instance. A similar approach is followed when removing instances.
 
 ### Lambda Functions 
 The Lambda functions (fgt_asg_launch_fgt_byol_asg and fgt_asg_launch_fgt_on_demand_asg) are responsible for configuring the FortiGate instance with the following:
