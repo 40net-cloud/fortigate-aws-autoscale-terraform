@@ -239,63 +239,68 @@ general_tags = {
 ```
 You can connect an existing VPC by filling out the required information.
 ```
-## Spoke VPC
-# "<YOUR-OWN-VALUE>" # e.g. 
-# spk_vpc = {
-#   # This is optional
-#   "spk_vpc1" = {
-#     vpc_id = "vpc-123456789",
-#     subnet_ids = [
-#       "subnet-123456789",
-#       "subnet-123456789"
-#     ]
-#   },
-#   route_tables = {
-#     igw_inbound = {
-#       routes = {
-#         az1 = {
-#           destination_cidr_block = "10.1.1.0/24"
-#           gwlbe_subnet_id        = "subnet-123456789"
-#         },
-#         az2 = {
-#           destination_cidr_block = "10.1.11.0/24"
-#           gwlbe_subnet_id        = "subnet-123456789"
-#         },
-#       },
-#       rt_association_gateways = ["igw-123456789"]
-#     },
-#     gwlbe_outbound = {
-#       routes = {
-#         az1 = {
-#           destination_cidr_block = "0.0.0.0/0"
-#           gateway_id        = "igw-123456789"
-#         }
-#       },
-#       rt_association_subnets = ["subnet-123456789", "subnet-123456789"]
-#     },
-#     pc_outbound_az1 = {
-#       routes = {
-#         az1 = {
-#           destination_cidr_block = "0.0.0.0/0"
-#           gwlbe_subnet_id        = "subnet-123456789"
-#         }
-#       },
-#       existing_rt = {
-#         id = "rtb-123456789"
-#       }
-#     },
-#     pc_outbound_az2 = {
-#       routes = {
-#         az1 = {
-#           destination_cidr_block = "0.0.0.0/0"
-#           gwlbe_subnet_id        = "subnet-123456789"
-#         }
-#       },
-#       existing_rt = {
-#         id = "rtb-123456789"
-#       }
-#     },
-#   }
-# }
+## Adding GWLBe and updating routing tables in an existing Spoke VPC 
+    spk_vpc = {
+      ## Adding GWLBe in the designated subnets
+      "spk_vpc1" = {
+        vpc_id = "vpc-01e491cdf48eb8fcf",
+        gwlbe_subnet_ids = [
+          "subnet-055c9ce3ad7f7f09f",
+          "subnet-053ec8fbef047f505"
+        ]
 
+        route_tables = {
+          ## igw_inbound - defines the routes for the IGW association to reach the EC2 instances
+          igw_inbound = {
+            routes = {
+              az1 = {
+                destination_cidr_block = "10.1.1.0/24"
+                gwlbe_subnet_id        = "subnet-055c9ce3ad7f7f09f"
+              },
+              az2 = {
+                destination_cidr_block = "10.1.2.0/24"
+                gwlbe_subnet_id        = "subnet-053ec8fbef047f505"
+              },
+            },
+            rt_association_gateways = ["igw-05f611f5b79704116"]
+          },
+
+          ## gwlbe_outbound - defines the routes for the GWLB subnets (outbound)
+          gwlbe_outbound = {
+            routes = {
+              az1 = {
+                destination_cidr_block = "0.0.0.0/0"
+                gateway_id        = "igw-055c9ce3ad7f7f09f"
+              }
+            },
+            rt_association_subnets = ["subnet-055c9ce3ad7f7f09f", "subnet-053ec8fbef047f505"]
+          },
+
+          ## pc_outbound_azX - defines the route updates for the EC2 instances subnets (outbound)
+          pc_outbound_az1 = {
+            routes = {
+              az1 = {
+                destination_cidr_block = "0.0.0.0/0"
+                gwlbe_subnet_id        = "subnet-055c9ce3ad7f7f09f"
+              }
+            },
+            existing_rt = {
+              id = "rtb-055c9ce3ad7f7f09f"
+            }
+          },
+
+          pc_outbound_az2 = {
+            routes = {
+              az1 = {
+                destination_cidr_block = "0.0.0.0/0"
+                gwlbe_subnet_id        = "subnet-055c9ce3ad7f7f09f"
+              }
+            },
+            existing_rt = {
+              id = "rtb-123456788"
+            }
+          },
+        }
+      }
+    }
 ```
