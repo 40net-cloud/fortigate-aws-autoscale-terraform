@@ -34,7 +34,7 @@ Please note there are 2 ASG's, respectivily for BYOL and PAYG instance managemen
 
 **AWS CloudWatch** continuously monitors various metrics such as CPU utilization, memory usage, disk I/O, and network traffic for your AWS resources. It provides real-time insights and triggers alarms when metrics breach predefined thresholds. These alarms can then initiate scale-in or scale-out operations within an Auto Scaling Group, automatically adjusting the number of EC2 instances to match the current demand. This ensures optimal performance and cost-efficiency by dynamically scaling your infrastructure in response to actual usage patterns.<br>
 <br>
-Default setting:
+CloudWatch alarm default setting:
 - byol_cpu_above_80
 - byol_cpu_below_30
 - ondemand_cpu_above_80
