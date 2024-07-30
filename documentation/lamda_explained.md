@@ -9,7 +9,8 @@ The script starts by initializing the necessary AWS clients and variables:
 - dynamodb_client: a DynamoDB client for interacting with DynamoDB tables
 - s3_bucket_name: the name of the S3 bucket used for storing interface track files
 - dynamodb_table_name: the name of the DynamoDB table used for storing item
-- intf_track_file_name: the name of the interface track file stored in S3
+- intf_track.json: the name of the interface track file stored in S3
+- asg-fgt-lic-track.json: the name of the license track file stored in S3 (BYOL)
 
 ## Main Functionality
 The script's main functionality is defined in the main method, which takes an event object as input. This method is responsible for controlling the auto-scaling process based on the event type.
@@ -39,7 +40,8 @@ When a terminate event is received, the script performs the following actions:
 
 ### Interface Track File
 The script uses an interface track file stored in S3 to keep track of the network interfaces created for each EC2 instance. The file contains a dictionary where the keys are instance IDs and the values are dictionaries of network interfaces.
-Locking Mechanism
+
+### Locking Mechanism
 The script uses a locking mechanism to prevent concurrent access to the interface track file. The locking mechanism uses a tag on the S3 object to indicate whether the file is locked or not.
 
 ### DynamoDB Operations
@@ -50,7 +52,8 @@ The script provides several methods for interacting with DynamoDB, including:
 - add_item_to_dydb: adds a new item to DynamoDB
 - remove_item_from_dydb: removes an item from DynamoDB
 
-## Logging
+### Logging
 The script uses the logging module to log important events and errors. The log level is set to INFO by default.
-Conclusion
+
+## Conclusion
 In conclusion, the provided lambda script is designed to control auto-scaling with FortiGates in AWS. It handles launch and terminate events, creates and cleans up network interfaces, and uses a locking mechanism to prevent concurrent access to the interface track file. The script also provides several methods for interacting with DynamoDB.
