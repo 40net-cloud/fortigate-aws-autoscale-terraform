@@ -50,7 +50,7 @@ Please note the setup assumes that your spokes are in the ranges defined here `s
 3. **All traffic** after inspection is routed back towards the GENEVE tunnel via policy based routes on the Fortigate to the GWLB back to the GWLBe.
    Traffic exiting the GWLBe is subject to the routing table of that subnet.<br>
 <br>
-The concept is explained here:
+The concept is explained here:<br>
 ![Alt text](https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2023/01/27/GWLB-MSR-Blog-Figure-2-1024x538.png)
 Source: [AWS Blogs](https://aws.amazon.com/blogs/networking-and-content-delivery/vpc-routing-enhancements-and-gwlb-deployment-patterns/)
 
