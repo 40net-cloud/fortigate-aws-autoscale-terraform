@@ -40,12 +40,20 @@ Please note there are 2 ASG's, respectivily for BYOL and PAYG instance managemen
 3. While the FortiGate instance is started, **Cloud-init** configures it with a basic network setup, enabling access to the instance, as specified in the **Launch Configuration**.
 4. **AWS EventBridge** rule monitors notifications indicating successful FortiGate EC2 instance launches (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to further configure the newly created FortiGate instance. A similar approach is followed when removing instances.
 
+### Autoscaling Process (scaling in)
+1. Traffic conditions change 
+2. CloudWatch alerts will trigger and instructs an ASG to scale in. 
+3. The FortiGate instance is terminated.
+4. **AWS EventBridge** rule monitors notifications indicating the FortiGate EC2 instance terminating (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to update the state in the DynamoDB.
+
+
 ### Lambda Functions 
 The Lambda functions (fgt_asg_launch_fgt_byol_asg and fgt_asg_launch_fgt_on_demand_asg) are responsible for configuring the FortiGate instance with the following:
 - License file, FortiFlex or PAYG 
 - Initial policy configuration
 - Advanced network configuration (GENEVE tunnels)
 - Configuration of system auto-scaling
+
 
 ### Auto-Scale Configuration
 The `config system auto-scale` feature requires particular attention. To configure a newly created FortiGate instance, the Lambda function must identify the **PRIMARY** FortiGate and configure the new instance as a **SECONDARY**. The state is tracked in an AWS DynamoDB. If there is no PRIMARY instance, the new unit will assume this role.
