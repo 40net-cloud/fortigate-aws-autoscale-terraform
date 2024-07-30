@@ -18,6 +18,7 @@ Make sure to use the official repository for the latest and updated versions of 
 - Examples
 <br>
 This ensures you have access to the most current and reliable resources for your setup.<br>
+
 In your console, run:
 
 ```
@@ -29,8 +30,9 @@ The examples directory contains 3 'packaged' deployments
 2. spk_tgw_gwlb_asg_fgt_gwlb_igw
 3. spk_tgw_gwlb_asg_fgt_igw
 
-The naming more or less describes the flow for E/W and Egress traffic flows. Please note the modules **DO NOT** create any spoke VPC.
-The Terraform modules **can** update exsting spoke VPC's (route table, endpoint creation, etc)
+The naming more or less describes the flow for E/W and Egress traffic flows. <br>
+Please note the modules **DO NOT** create any spoke VPC.
+The Terraform modules **can** update exsting spoke VPC's (route table, endpoint creation, etc) to integrate with the deployed infrastructure.
 
 ### 1. spk_gwlb_asg_fgt_gwlb_igw
 This terraform plan will simply create
