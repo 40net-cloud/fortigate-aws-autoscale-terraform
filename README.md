@@ -44,7 +44,7 @@ Please note there are 2 ASG's, respectivily for BYOL and PAYG instance managemen
 1. Traffic conditions change 
 2. CloudWatch alerts will trigger and instructs an ASG to scale in. 
 3. The FortiGate instance is terminated.
-4. **AWS EventBridge** rule monitors notifications indicating the FortiGate EC2 instance terminating (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to update the state in the DynamoDB.
+4. **AWS EventBridge** rule monitors notifications indicating the FortiGate EC2 instance terminating (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to update the state in the **AWS DynamoDB** (see later).
 
 
 ### Lambda Functions 
