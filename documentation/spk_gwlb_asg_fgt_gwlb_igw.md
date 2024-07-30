@@ -6,7 +6,7 @@ This terraform plan will simply create
 
 Optionlly, one or more spokes can be connected.<br>
 
-Please note the setup assumes that your spokes are in the ranges defined here `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
+Please note the setup assumes that your spokes are in the ranges defined here `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.tfvars`
 
 #### Simplified flow
 1. Traffic is routed from the spoke EC2 instances towards GWLB endpoints (GWLBe) **in the same spoke vpc**. <br>
@@ -34,7 +34,7 @@ Copy `terraform.tfvars.txt` to `terraform.tfvars`.
 cp terraform.tfvars.txt terraform.tfvars
 ```
 Update the `terraform.tfvars` and replace all placeholders "\<YOUR-OWN-VALUE\>" with your the required information.<br>
-You can comment/uncomment using `#`
+You can comment/uncomment using adding/removing `#`<br>
 ```
 ## Note: Please go through all arguments in this file and replace the content with your configuration! This file is just an example.
 ## "<YOUR-OWN-VALUE>" are parameters that you need to specify your own value.
@@ -230,7 +230,9 @@ cloudwatch_alarms = {
 
 ## Gateway Load Balancer
 enable_cross_zone_load_balancing = true
-
+```
+You can connect an existing VPC by filling out the required information.
+```
 ## Spoke VPC
 # "<YOUR-OWN-VALUE>" # e.g. 
 # spk_vpc = {
