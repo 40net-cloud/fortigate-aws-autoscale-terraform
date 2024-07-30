@@ -5,7 +5,7 @@ At a very high level, the solution is divided into two main components:
 - Autoscaling in AWS
 - Implementing autoscaling on FortiGate
 
-When you are familiar with the solution, you can get additional info [Getting Started](../documentation/Getting%20started)<br>
+When you are familiar with the solution, you can get additional info [Getting Started](../documentation/Getting_started.md)<br>
 There is also a workshop available [here](https://fortinetcloudcse.github.io/FortiGate-AWS-Autoscale-TEC-Workshop/)
 
 ## Solution Overview
@@ -24,7 +24,8 @@ Key components of an Auto Scaling Group include:
 - **Health Checks:** Mechanisms to ensure that instances are running properly. ASGs can use EC2 status checks or Elastic Load Balancer (ELB) health checks to determine the health of instances.
 - **Lifecycle Hooks:** Allow you to perform custom actions at different stages of the instance lifecycle, such as when instances are launching or terminating.
 
-By using Auto Scaling Groups, you can ensure that your Fortigate deployment is resilient, scalable, and cost-effective, automatically responding to varying loads **without** manual intervention.
+By using Auto Scaling Groups, you can ensure that your Fortigate deployment is resilient, scalable, and cost-effective, automatically responding to varying loads **without** manual intervention.<br>
+Please note there are 2 ASG's, respectivily for BYOL and PAYG instance management.
 
 **Lifecycle Hooks** in AWS Auto Scaling Groups enable you to perform custom actions at different stages of the instance lifecycle, such as during instance launch or termination. These hooks allow for tasks like configuring software, running scripts, or saving logs, ensuring a smoother and more controlled scaling process. In this deployment, a notifications of these events happening is picked up on the **AWS EventBridge**.
 
@@ -34,17 +35,17 @@ By using Auto Scaling Groups, you can ensure that your Fortigate deployment is r
 1. Traffic conditions change 
 2. CloudWatch alerts will trigger and instructs an ASG to scale out. 
 3. While the FortiGate instance is started, **Cloud-init** configures it with a basic network setup, enabling access to the instance, as specified in the **Launch Configuration**.
-4. **AWS EventBridge** monitors notifications indicating successful FortiGate EC2 instance launches (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to further configure the newly created FortiGate instance. A similar approach is followed when removing instances.
+4. **AWS EventBridge** rule monitors notifications indicating successful FortiGate EC2 instance launches (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to further configure the newly created FortiGate instance. A similar approach is followed when removing instances.
 
 ### Lambda Functions 
 The Lambda functions (fgt_asg_launch_fgt_byol_asg and fgt_asg_launch_fgt_on_demand_asg) are responsible for configuring the FortiGate instance with the following:
-- License file or FortiFlex (or PAYG)
+- License file, FortiFlex or PAYG 
 - Initial policy configuration
 - Advanced network configuration (GENEVE tunnels)
 - Configuration of system auto-scaling
 
 ### Auto-Scale Configuration
 The `config system auto-scale` feature requires particular attention. To configure a newly created FortiGate instance, the Lambda function must identify the **PRIMARY** FortiGate and configure the new instance as a **SECONDARY**. The state is tracked in an AWS DynamoDB. If there is no PRIMARY instance, the new unit will assume this role.
-The DynomaDB table is aware of all instances that are in used (license mgmt) as well as the current PRIMARY.
+The DynomaDB table is aware of all instances that are in use (license mgmt) as well as the current PRIMARY.
 
 **AWS DynamoDB** is a fully managed NoSQL database service designed for fast and predictable performance with seamless scalability. It provides high availability and durability by automatically distributing data across multiple servers and regions. DynamoDB supports both document and key-value store models, making it flexible for a wide range of applications.

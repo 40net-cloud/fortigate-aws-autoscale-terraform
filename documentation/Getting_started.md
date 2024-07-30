@@ -41,7 +41,7 @@ This terraform plan will simply create
 - ASG for byol/payg fortigates and related resources
 
 Optionlly, one or more spokes can be connected.<br>
-Please note the setup assumes that your spokes are in the ranges defined in `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
+Please note the setup assumes that your spokes are in the ranges defined here `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
 
 #### Simplified flow
 1. Traffic is routed from the spoke EC2 instances towards GWLB endpoints (GWLBe) **in the same spoke vpc**. <br>
