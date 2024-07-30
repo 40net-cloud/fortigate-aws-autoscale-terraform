@@ -5,8 +5,8 @@ At a very high level, the solution is divided into two main components:
 - Autoscaling in AWS
 - Implementing autoscaling on FortiGate
 
-When you are familiar with the solution, you can get additional info [Getting Started](../documentation/Getting%20started)
-There is also workshop available [here](https://fortinetcloudcse.github.io/FortiGate-AWS-Autoscale-TEC-Workshop/)
+When you are familiar with the solution, you can get additional info [Getting Started](../documentation/Getting%20started)<br>
+There is also a workshop available [here](https://fortinetcloudcse.github.io/FortiGate-AWS-Autoscale-TEC-Workshop/)
 
 ## Solution Overview
 

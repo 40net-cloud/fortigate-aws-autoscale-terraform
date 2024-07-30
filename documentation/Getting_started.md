@@ -1,7 +1,7 @@
 # Getting started
-The repo contains:
-- terraform modules
-- examples
+## Introduction
+This is a quickstart to get up and running quickly. 
+If you need a step-by-step detailed workshop (see [here](https://fortinetcloudcse.github.io/))
 
 ## Pre-requisites
 Prepare an AWS environment. 
@@ -10,6 +10,10 @@ Prepare an AWS environment.
 
 ## Setup
 Use the official repository for the latest and updated versions of the modules.
+The repo contains:
+- terraform modules
+- examples
+
 ```
 git clone https://github.com/fortinet/terraform-aws-cloud-modules.git
 ```
