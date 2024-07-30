@@ -5,6 +5,9 @@ At a very high level, the solution is divided into two main components:
 - Autoscaling in AWS
 - Implementing autoscaling on FortiGate
 
+When you are familiar with the solution, you can get additional info [Getting Started](../documentation/Getting started)
+There is also workshop available [here](https://fortinetcloudcse.github.io/FortiGate-AWS-Autoscale-TEC-Workshop/)
+
 ## Solution Overview
 
 The core of the solution involves two **AWS Auto Scaling Groups** (ASGs):
@@ -42,5 +45,6 @@ The Lambda functions (fgt_asg_launch_fgt_byol_asg and fgt_asg_launch_fgt_on_dema
 
 ### Auto-Scale Configuration
 The `config system auto-scale` feature requires particular attention. To configure a newly created FortiGate instance, the Lambda function must identify the **PRIMARY** FortiGate and configure the new instance as a **SECONDARY**. The state is tracked in an AWS DynamoDB. If there is no PRIMARY instance, the new unit will assume this role.
+The DynomaDB table is aware of all instances that are in used (license mgmt) as well as the current PRIMARY.
 
 **AWS DynamoDB** is a fully managed NoSQL database service designed for fast and predictable performance with seamless scalability. It provides high availability and durability by automatically distributing data across multiple servers and regions. DynamoDB supports both document and key-value store models, making it flexible for a wide range of applications.
