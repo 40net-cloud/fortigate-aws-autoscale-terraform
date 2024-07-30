@@ -37,6 +37,7 @@ When a launch event is received, the script performs the following actions:
 - Retrieves the private IP of the instance.
 - Changes the password of the FortiGate instance
 - Updates DynamoDB with the instance details
+- Handles PRIMAY selection
 - Handles license uploading if needed
 - Configures the FortiGate instance using the generated configuration content (GENEVE tunnel, system autoscale, policy)
 
