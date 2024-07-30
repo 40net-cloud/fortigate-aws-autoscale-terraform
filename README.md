@@ -6,7 +6,8 @@ At a very high level, the solution is divided into two main components:
 - Implementing autoscaling on FortiGate
 
 When you are familiar with the solution, you can get additional info [Getting Started](./documentation/Getting_started.md)<br>
-There is also a workshop available [here](https://fortinetcloudcse.github.io/FortiGate-AWS-Autoscale-TEC-Workshop/)
+There is also a workshop available [here](https://fortinetcloudcse.github.io/FortiGate-AWS-Autoscale-TEC-Workshop/)<br>
+The official repository container the Terraform modules nad exaples are [https://github.com/fortinet/terraform-aws-cloud-modules](https://github.com/fortinet/terraform-aws-cloud-modules) <br>
 
 ## Solution Overview
 
