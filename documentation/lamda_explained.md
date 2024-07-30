@@ -1,6 +1,6 @@
 # Overview of the Lambda Script (fgt-asg-lambda_fgt_byol_asg)
 
-The provided lambda script is designed to control auto-scaling with FortiGates in AWS. <br>
+The lambda script is designed to control auto-scaling with FortiGates in AWS. <br>
 It is written in Python and utilizes various AWS services such as EC2, S3, and DynamoDB.<br>
 It is triggered by the **AWS EventBridge** rules.
 
@@ -25,17 +25,23 @@ The script handles two types of events:
 
 ### Launch Event
 When a launch event is received, the script performs the following actions:
-
+#### NetworkInterface Class
 - Retrieves the instance ID and availability zone from the event object
 - Gets the interface settings from the environment variable network_interfaces
 - Iterates through the interface settings and creates a new network interface for each one
 - Attaches the new network interface to the EC2 instance
 - Sets the DeleteOnTermination attribute for the network interface to True
 - Associates a public IP address with the network interface if required
+- Adds a name tag to the instance
+#### FgtConf class
+- Retrieves the private IP of the instance.
+- Changes the password of the FortiGate instance
+- Updates DynamoDB with the instance details
+- Handles license uploading if needed
+- Configures the FortiGate instance using the generated configuration content (GENEVE tunnel, system autoscale, policy)
 
 ### Terminate Event
 When a terminate event is received, the script performs the following actions:
-
 - Retrieves the instance ID from the event object
 - Gets the interface track dictionary from S3
 - Iterates through the interface track dictionary and cleans up each interface
