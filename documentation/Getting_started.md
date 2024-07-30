@@ -45,11 +45,11 @@ Please note the setup assumes that your spokes are in the ranges defined <br>
 in `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
 
 #### Simplified flow
-1. Traffic is routed from the spoke EC2 instances towards GWLB endpoints **in the same spoke vpc**. 
+1. Traffic is routed from the spoke EC2 instances towards GWLB endpoints (GWLBe) **in the same spoke vpc**. <br>
    Please note that these endpoints are **NOT** created by default.<br>
-2. The GWLB will pickup the incoming traffic and forward it over one of the GENEVE tunnels terminiated on port1 of the available Fortigates<br>
-3. **All traffic** is routed back towards the GENEVE tunnels via policy based routes on the Fortigate to the GWLB back to the endpoint.<br>
-   Traffic existing the GWLBe is bound to the routing table of the subnet.
+2. The GWLB will pickup the incoming traffic and forward it over one of the GENEVE tunnels terminiated on port1 of the selected (load balancing) Fortigates<br>
+3. **All traffic** after inspection is routed back towards the GENEVE tunnel via policy based routes on the Fortigate to the GWLB back to the GWLBe.<br>
+   Traffic existing the GWLBe is subject to the routing table of that subnet.
 	
 ### 2. spk_tgw_gwlb_asg_fgt_gwlb_igw
 This terraform plan will create 
