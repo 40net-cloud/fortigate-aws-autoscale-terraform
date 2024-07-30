@@ -33,6 +33,7 @@ Please note there are 2 ASG's, respectivily for BYOL and PAYG instance managemen
 **Lifecycle Hooks** in AWS Auto Scaling Groups enable you to perform custom actions at different stages of the instance lifecycle, such as during instance launch or termination. These hooks allow for tasks like configuring software, running scripts, or saving logs, ensuring a smoother and more controlled scaling process. In this deployment, a notifications of these events happening is picked up on the **AWS EventBridge**.
 
 **AWS CloudWatch** continuously monitors various metrics such as CPU utilization, memory usage, disk I/O, and network traffic for your AWS resources. It provides real-time insights and triggers alarms when metrics breach predefined thresholds. These alarms can then initiate scale-in or scale-out operations within an Auto Scaling Group, automatically adjusting the number of EC2 instances to match the current demand. This ensures optimal performance and cost-efficiency by dynamically scaling your infrastructure in response to actual usage patterns.<br>
+<br>
 Default setting:
 - byol_cpu_above_80
 - byol_cpu_below_30
