@@ -25,15 +25,15 @@ Navigate to:
 ```
 cd ./examples/spk_gwlb_asg_fgt_gwlb_igw/
 ```
+Initialise Terraform:
 ```
 terraform init
 ```
-Copy `terraform.tfvars.txt` to 'terraform.tfvars`
+Copy `terraform.tfvars.txt` to `terraform.tfvars`.
 ```
 cp terraform.tfvars.txt terraform.tfvars
-
 ```
-Replace all placeholders "<YOUR-OWN-VALUE>" with your the required information.<br>
+Update the `terraform.tfvars` and replace all placeholders "\<YOUR-OWN-VALUE\>" with your the required information.<br>
 You can comment/uncomment using `#`
 ```
 ## Note: Please go through all arguments in this file and replace the content with your configuration! This file is just an example.
