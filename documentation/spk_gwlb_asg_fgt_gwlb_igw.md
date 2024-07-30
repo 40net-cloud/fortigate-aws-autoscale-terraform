@@ -1,4 +1,4 @@
-### spk_gwlb_asg_fgt_gwlb_igw (aka DISTRIBUTED GWLB deployment)
+### spk_gwlb_asg_fgt_gwlb_igw (Distributed GWLB deployment)
 This terraform plan will simply create
 - Security VPC
 - GWLB
@@ -34,7 +34,8 @@ Copy `terraform.tfvars.txt` to `terraform.tfvars`.
 cp terraform.tfvars.txt terraform.tfvars
 ```
 Update the `terraform.tfvars` and replace all placeholders "\<YOUR-OWN-VALUE\>" with your the required information.<br>
-You can comment/uncomment using adding/removing `#`<br>
+You can comment/uncomment adding/removing `#`<br>
+For reference find an example.
 ```
 ## Note: Please go through all arguments in this file and replace the content with your configuration! This file is just an example.
 ## "<YOUR-OWN-VALUE>" are parameters that you need to specify your own value.
@@ -236,7 +237,7 @@ You can connect an existing VPC by filling out the required information.
 ## Spoke VPC
 # "<YOUR-OWN-VALUE>" # e.g. 
 # spk_vpc = {
-#   # This is optional. The module will create Transit Gateway Attachment under each subnet in argument 'subnet_ids', and also create route table to let all traffic (0.0.0.0/0) forward to the TGW attachment with the subnets associated.
+#   # This is optional
 #   "spk_vpc1" = {
 #     vpc_id = "vpc-123456789",
 #     subnet_ids = [
