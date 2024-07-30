@@ -53,7 +53,7 @@ The Lambda functions (fgt_asg_launch_fgt_byol_asg and fgt_asg_launch_fgt_on_dema
 - Initial policy configuration
 - Advanced network configuration (GENEVE tunnels)
 - Configuration of system auto-scaling
-<br>
+
 More info can be found [Lambda explained](./documentation/lamda_explained.md)
 
 
