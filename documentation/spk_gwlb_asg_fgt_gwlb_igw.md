@@ -231,6 +231,11 @@ cloudwatch_alarms = {
 
 ## Gateway Load Balancer
 enable_cross_zone_load_balancing = true
+
+## Tag
+general_tags = {
+  "purpuse" = "ASG_TEST"
+}
 ```
 You can connect an existing VPC by filling out the required information.
 ```
@@ -293,8 +298,4 @@ You can connect an existing VPC by filling out the required information.
 #   }
 # }
 
-## Tag
-general_tags = {
-  "purpuse" = "ASG_TEST"
-}
 ```

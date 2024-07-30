@@ -1,4 +1,4 @@
-# Overview of the Lambda Script (fgt-asg-lambda_fgt_byol_asg)
+# High level overview of the Lambda code (fgt-asg-lambda_fgt_byol_asg)
 
 The lambda script is designed to control auto-scaling with FortiGates in AWS. <br>
 It is written in Python and utilizes various AWS services such as EC2, S3, and DynamoDB.<br>
@@ -37,7 +37,7 @@ When a launch event is received, the script performs the following actions:
 - Retrieves the private IP of the instance.
 - Changes the password of the FortiGate instance
 - Updates DynamoDB with the instance details
-- Handles PRIMAY selection
+- Handles PRIMARY selection
 - Handles license uploading if needed
 - Configures the FortiGate instance using the generated configuration content (GENEVE tunnel, system autoscale, policy)
 
