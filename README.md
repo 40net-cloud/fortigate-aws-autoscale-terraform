@@ -47,7 +47,7 @@ Please note there are 2 ASG's, respectivily for BYOL and PAYG instance managemen
 4. **AWS EventBridge** rule monitors notifications indicating the FortiGate EC2 instance terminating (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to update the state in the **AWS DynamoDB** (see later).
 
 
-### Lambda Functions 
+### Lambda Functions (scaling out)
 The Lambda functions (fgt_asg_launch_fgt_byol_asg and fgt_asg_launch_fgt_on_demand_asg) are responsible for configuring the FortiGate instance with the following:
 - License file, FortiFlex or PAYG 
 - Initial policy configuration
