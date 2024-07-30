@@ -32,7 +32,13 @@ Please note there are 2 ASG's, respectivily for BYOL and PAYG instance managemen
 
 **Lifecycle Hooks** in AWS Auto Scaling Groups enable you to perform custom actions at different stages of the instance lifecycle, such as during instance launch or termination. These hooks allow for tasks like configuring software, running scripts, or saving logs, ensuring a smoother and more controlled scaling process. In this deployment, a notifications of these events happening is picked up on the **AWS EventBridge**.
 
-**AWS CloudWatch** continuously monitors various metrics such as CPU utilization, memory usage, disk I/O, and network traffic for your AWS resources. It provides real-time insights and triggers alarms when metrics breach predefined thresholds. These alarms can then initiate scale-in or scale-out operations within an Auto Scaling Group, automatically adjusting the number of EC2 instances to match the current demand. This ensures optimal performance and cost-efficiency by dynamically scaling your infrastructure in response to actual usage patterns.
+**AWS CloudWatch** continuously monitors various metrics such as CPU utilization, memory usage, disk I/O, and network traffic for your AWS resources. It provides real-time insights and triggers alarms when metrics breach predefined thresholds. These alarms can then initiate scale-in or scale-out operations within an Auto Scaling Group, automatically adjusting the number of EC2 instances to match the current demand. This ensures optimal performance and cost-efficiency by dynamically scaling your infrastructure in response to actual usage patterns.<br>
+Default setting:
+- byol_cpu_above_80
+- byol_cpu_below_30
+- ondemand_cpu_above_80
+- ondemand_cpu_below_30
+
 
 ### Autoscaling Process (scaling out)
 1. Traffic conditions change 
@@ -44,8 +50,7 @@ Please note there are 2 ASG's, respectivily for BYOL and PAYG instance managemen
 1. Traffic conditions change 
 2. CloudWatch alerts will trigger and instructs an ASG to scale in. 
 3. The FortiGate instance is terminated.
-4. **AWS EventBridge** rule monitors notifications indicating the FortiGate EC2 instance terminating (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to update the state in the **AWS DynamoDB** (see later).
-
+4. **AWS EventBridge** rule monitors notifications indicating the FortiGate EC2 instance terminating (via **ASG Lifecycle hooks**) and triggers an **AWS Lambda function** to update the state in the **AWS DynamoDB** (see later).<br>
 
 ### Lambda Functions (scaling out)
 The Lambda functions (fgt_asg_launch_fgt_byol_asg and fgt_asg_launch_fgt_on_demand_asg) are responsible for configuring the FortiGate instance with the following:
