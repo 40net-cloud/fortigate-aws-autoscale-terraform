@@ -1,18 +1,22 @@
 # Getting started
 ## Introduction
-This is a quickstart to get up and running quickly. 
-If you need a step-by-step detailed workshop (see [here](https://fortinetcloudcse.github.io/))
+This is a quickstart to get up and running quickly. <br>
+If you need a more detailed step-by-step workshop (see [here](https://fortinetcloudcse.github.io/))
 
 ## Pre-requisites
-Prepare an AWS environment. 
-- AWS access key / secret key
+To prepare your AWS environment, ensure you have the following:
+- AWS account
+- AWS access key and secret key
 - SSH key
+- Terraform
+
+These essentials will allow you to securely access and manage your AWS resources.
 
 ## Setup
-Use the official repository for the latest and updated versions of the modules.
-The repo contains:
-- terraform modules
-- examples
+Make sure to use the official repository for the latest and updated versions of the modules. The repository includes:
+- Terraform modules
+- Examples
+This ensures you have access to the most current and reliable resources for your setup.
 
 ```
 git clone https://github.com/fortinet/terraform-aws-cloud-modules.git
