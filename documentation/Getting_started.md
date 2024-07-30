@@ -34,14 +34,15 @@ The naming more or less describes the flow for E/W and Egress traffic flows. <br
 Please note the modules **DO NOT** create any spoke VPC.
 The Terraform modules **can** update exsting spoke VPC's (route table, endpoint creation, etc) to integrate with the deployed infrastructure.
 
-### 1. spk_gwlb_asg_fgt_gwlb_igw
+### 1. spk_gwlb_asg_fgt_gwlb_igw (aka DISTRIBUTED GWLB deployment)
 This terraform plan will simply create
 - Security VPC
 - GWLB
 - ASG for byol/payg fortigates and related resources
 
 Optionlly, one or more spokes can be connected.<br>
-Please note the setup assumes that your spokes are in the ranges defined in `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
+Please note the setup assumes that your spokes are in the ranges defined <br>
+in `spoke_cidr_list    = ["10.0.0.0/16"]` in `terraform.tfvars`
 
 1. Traffic is routed towards GWLB endpoints **in the spoke vpc**. Please note that these endpoints are **NOT** created by default.<br>
 2. The GWLB will pickup the incoming traffic and forward it over one of the GENEVE tunnels terminiated on port1 of the available Fortigates<br>
