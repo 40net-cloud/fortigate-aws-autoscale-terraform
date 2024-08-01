@@ -243,10 +243,10 @@ You can connect an existing VPC by filling out the required information.
     spk_vpc = {
       ## Adding GWLBe in the designated subnets
       "spk_vpc1" = {
-        vpc_id = "vpc-01e491cdf48eb8fcf",
+        vpc_id = "<VPC_ID_TO_ADD>",
         gwlbe_subnet_ids = [
-          "subnet-055c9ce3ad7f7f09f",
-          "subnet-053ec8fbef047f505"
+          "<SUBNET_GWLBe_AZ1>",
+          "<SUBNET_GWLBe_AZ2>"
         ]
 
         route_tables = {
@@ -254,15 +254,15 @@ You can connect an existing VPC by filling out the required information.
           igw_inbound = {
             routes = {
               az1 = {
-                destination_cidr_block = "10.1.1.0/24"
-                gwlbe_subnet_id        = "subnet-055c9ce3ad7f7f09f"
+                destination_cidr_block = "<CIDR_APP_SERVERS_AZ1>"
+                gwlbe_subnet_id        = "<SUBNET_GWLBe_AZ1>"
               },
               az2 = {
-                destination_cidr_block = "10.1.2.0/24"
-                gwlbe_subnet_id        = "subnet-053ec8fbef047f505"
+                destination_cidr_block = "<CIDR_APP_SERVERS_AZ2>"
+                gwlbe_subnet_id        = "<SUBNET_GWLBe_AZ2>"
               },
             },
-            rt_association_gateways = ["igw-05f611f5b79704116"]
+            rt_association_gateways = ["<IGW_ID>"]
           },
 
           ## gwlbe_outbound - defines the routes for the GWLB subnets (outbound)
@@ -270,10 +270,10 @@ You can connect an existing VPC by filling out the required information.
             routes = {
               az1 = {
                 destination_cidr_block = "0.0.0.0/0"
-                gateway_id        = "igw-055c9ce3ad7f7f09f"
+                gateway_id        = "<IGW_ID>"
               }
             },
-            rt_association_subnets = ["subnet-055c9ce3ad7f7f09f", "subnet-053ec8fbef047f505"]
+            rt_association_subnets = ["<SUBNET_GWLBe_AZ1>", "<SUBNET_GWLBe_AZ2>"]
           },
 
           ## pc_outbound_azX - defines the route updates for the EC2 instances subnets (outbound)
@@ -281,11 +281,11 @@ You can connect an existing VPC by filling out the required information.
             routes = {
               az1 = {
                 destination_cidr_block = "0.0.0.0/0"
-                gwlbe_subnet_id        = "subnet-055c9ce3ad7f7f09f"
+                gwlbe_subnet_id        = "<SUBNET_GWLBe_AZ1>"
               }
             },
             existing_rt = {
-              id = "rtb-055c9ce3ad7f7f09f"
+              id = "<RTB_APP_SERVER_AZ1_ID>"
             }
           },
 
@@ -293,11 +293,11 @@ You can connect an existing VPC by filling out the required information.
             routes = {
               az1 = {
                 destination_cidr_block = "0.0.0.0/0"
-                gwlbe_subnet_id        = "subnet-055c9ce3ad7f7f09f"
+                gwlbe_subnet_id        = "<SUBNET_GWLBe_AZ2>"
               }
             },
             existing_rt = {
-              id = "rtb-123456788"
+              id = "<RTB_APP_SERVER_AZ2_ID>"
             }
           },
         }
