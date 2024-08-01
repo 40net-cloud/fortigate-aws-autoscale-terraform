@@ -237,7 +237,9 @@ general_tags = {
   "purpuse" = "ASG_TEST"
 }
 ```
-You can connect an existing VPC by filling out the required information.
+## Adding a VPC 
+You can connect an existing VPC by filling out the required information.<br>
+Please note that no current associations or default gateways should be configured.
 ```
 ## Adding GWLBe and updating routing tables in an existing Spoke VPC 
     spk_vpc = {
