@@ -245,8 +245,8 @@ You can connect an existing VPC by filling out the required information.
       "spk_vpc1" = {
         vpc_id = "<VPC_ID_TO_ADD>",
         gwlbe_subnet_ids = [
-          "<SUBNET_GWLBe_AZ1>",
-          "<SUBNET_GWLBe_AZ2>"
+          "<SUBNET_ID_GWLBe_AZ1>",
+          "<SUBNET_ID_GWLBe_AZ2>"
         ]
 
         route_tables = {
@@ -255,11 +255,11 @@ You can connect an existing VPC by filling out the required information.
             routes = {
               az1 = {
                 destination_cidr_block = "<CIDR_APP_SERVERS_AZ1>"
-                gwlbe_subnet_id        = "<SUBNET_GWLBe_AZ1>"
+                gwlbe_subnet_id        = "<SUBNET_ID_GWLBe_AZ1>"
               },
               az2 = {
                 destination_cidr_block = "<CIDR_APP_SERVERS_AZ2>"
-                gwlbe_subnet_id        = "<SUBNET_GWLBe_AZ2>"
+                gwlbe_subnet_id        = "<SUBNET_ID_GWLBe_AZ2>"
               },
             },
             rt_association_gateways = ["<IGW_ID>"]
@@ -273,7 +273,7 @@ You can connect an existing VPC by filling out the required information.
                 gateway_id        = "<IGW_ID>"
               }
             },
-            rt_association_subnets = ["<SUBNET_GWLBe_AZ1>", "<SUBNET_GWLBe_AZ2>"]
+            rt_association_subnets = ["<SUBNET_ID_GWLBe_AZ1>", "<SUBNET_ID_GWLBe_AZ2>"]
           },
 
           ## pc_outbound_azX - defines the route updates for the EC2 instances subnets (outbound)
@@ -281,7 +281,7 @@ You can connect an existing VPC by filling out the required information.
             routes = {
               az1 = {
                 destination_cidr_block = "0.0.0.0/0"
-                gwlbe_subnet_id        = "<SUBNET_GWLBe_AZ1>"
+                gwlbe_subnet_id        = "<SUBNET_ID_GWLBe_AZ1>"
               }
             },
             existing_rt = {
@@ -293,7 +293,7 @@ You can connect an existing VPC by filling out the required information.
             routes = {
               az1 = {
                 destination_cidr_block = "0.0.0.0/0"
-                gwlbe_subnet_id        = "<SUBNET_GWLBe_AZ2>"
+                gwlbe_subnet_id        = "<SUBNET_ID_GWLBe_AZ2>"
               }
             },
             existing_rt = {
