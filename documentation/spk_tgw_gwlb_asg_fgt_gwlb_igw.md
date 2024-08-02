@@ -17,6 +17,10 @@ Please note and adapt the `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.t
 3. E/W and EGRESS is routed back towards the GWLB over the GENEVE tunnels via ??policy based?? routes.<br>
 4. EGRESS (Internet) traffic is routed towards the NAT gateway, E/W traffic is is routed towards the TGW.<br>
 
+![Alt text](../images/spk_tgw_gwlb_asg_fgt_gwlb_igw%20-%20egress.png)
+![Alt text](../images/spk_tgw_gwlb_asg_fgt_gwlb_igw%20-%20ingress.png)
+
+
 ### Setup
 Navigate to:
 ```
