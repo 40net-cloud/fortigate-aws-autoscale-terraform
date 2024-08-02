@@ -76,7 +76,7 @@ availability_zones = "<YOUR-OWN-VALUE>" # e.g. ["us-east-2a", "us-east-2b"]
 ```
 ## Adding a VPC 
 You can connect an existing VPC by filling out the required information.<br>
-Please note that no current associations or default gateways should be configured.
+Please note that **no current associations or default gateways** should be configured.
 ```
 ## Adding GWLBe and updating routing tables in an existing Spoke VPC 
     spk_vpc = {
