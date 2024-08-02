@@ -11,10 +11,27 @@ This terraform plan will create
 Optionlly, one or more spokes are connected via transit gateway attachments to the transit gateway.<br>
 Please note and adapt the `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.tfvars`
 
+#### Simplified flow
 1. Traffic is routed from the spokes, via the TGW attachments and TGW to the GWLB endpoints in the security VPC.<br>
 2. The GWLB will pickup the incoming traffic and forward it over one of the GENEVE tunnels terminiated on port1 of the available Fortigates<br>
 3. E/W and EGRESS is routed back towards the GWLB over the GENEVE tunnels via ??policy based?? routes.<br>
 4. EGRESS (Internet) traffic is routed towards the NAT gateway, E/W traffic is is routed towards the TGW.<br>
+
+### Setup
+Navigate to:
+```
+cd ./examples/spk_gwlb_asg_fgt_gwlb_igw/
+```
+Initialise Terraform:
+```
+terraform init
+```
+Copy `terraform.tfvars.txt` to `terraform.tfvars`.
+```
+cp terraform.tfvars.txt terraform.tfvars
+```
+Update the `terraform.tfvars` and replace all placeholders "\<YOUR-OWN-VALUE\>" with your the required information.<br>
+You can comment/uncomment adding/removing `#`<br>
 
 ## Adding a VPC
 Example:
