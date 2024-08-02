@@ -15,3 +15,18 @@ Please note and adapt the `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.t
 2. The GWLB will pickup the incoming traffic and forward it over one of the GENEVE tunnels terminiated on port1 of the available Fortigates<br>
 3. E/W and EGRESS is routed back towards the GWLB over the GENEVE tunnels via ??policy based?? routes.<br>
 4. EGRESS (Internet) traffic is routed towards the NAT gateway, E/W traffic is is routed towards the TGW.<br>
+
+## Adding a VPC
+Example:
+```
+spk_vpc = {
+#   # This is optional. The module will create Transit Gateway Attachment under each subnet in argument 'subnet_ids', and also create route table to let all traffic (0.0.0.0/0) forward to the TGW attachment with the subnets associated.
+   "spk_vpc1" = {
+     vpc_id = "vpc-01e491cdf48eb8fcf", #VPC to add
+     subnet_ids = [
+       "subnet-04a02980ac1bff7d0", #subnet to deploy endpoint AZ1
+       "subnet-053ec8fbef047f505"  #subnet to deploy endpoint AZ2
+     ]
+   }
+ }
+```
