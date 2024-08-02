@@ -20,7 +20,7 @@ Please note and adapt the `spoke_cidr_list    = ["10.1.0.0/16"]` in `terraform.t
 Example:
 ```
 spk_vpc = {
-#   # This is optional. The module will create Transit Gateway Attachment under each subnet in argument 'subnet_ids', and also create route table to let all traffic (0.0.0.0/0) forward to the TGW attachment with the subnets associated.
+# This is optional. The module will create Transit Gateway Attachment under each subnet in argument 'subnet_ids', and also create route table to let all traffic (0.0.0.0/0) forward to the TGW attachment with the subnets associated.
    "spk_vpc1" = {
      vpc_id = "vpc-01e491cdf48eb8fcf", #VPC to add
      subnet_ids = [
