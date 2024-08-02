@@ -24,8 +24,8 @@ spk_vpc = {
    "spk_vpc1" = {
      vpc_id = "vpc-01e491cdf48eb8fcf", #VPC to add
      subnet_ids = [
-       "subnet-04a02980ac1bff7d0", #subnet to deploy endpoint AZ1
-       "subnet-053ec8fbef047f505"  #subnet to deploy endpoint AZ2
+       "subnet-04a02980ac1bff7d0", #subnet to attach TGW AZ1
+       "subnet-053ec8fbef047f505"  #subnet to attach TGW AZ2
      ]
    }
  }
